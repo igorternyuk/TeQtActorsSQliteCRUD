@@ -6,12 +6,28 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>633</width>
-    <height>386</height>
+    <width>678</width>
+    <height>432</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>678</width>
+    <height>432</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/icons/icons/app.png</normaloff>:/icons/icons/app.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -21,11 +37,18 @@
        <widget class="QTableView" name="tableView"/>
       </item>
       <item>
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>TextLabel</string>
-        </property>
-       </widget>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="lblImage">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTextEdit" name="txtBio"/>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>
@@ -36,7 +59,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>633</width>
+     <width>678</width>
      <height>19</height>
     </rect>
    </property>
@@ -48,7 +71,14 @@
     <addaction name="action_open_database"/>
     <addaction name="action_quit"/>
    </widget>
+   <widget class="QMenu" name="menuCountries">
+    <property name="title">
+     <string>Countries</string>
+    </property>
+    <addaction name="action_edit_countries"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuCountries"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -59,11 +89,18 @@
    </attribute>
    <addaction name="action_new_database"/>
    <addaction name="action_open_database"/>
+   <addaction name="action_insert_new_actor"/>
+   <addaction name="action_remove_selected_actor"/>
+   <addaction name="action_reload_list_of_actors"/>
    <addaction name="separator"/>
    <addaction name="action_quit"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="action_new_database">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/icons/new_db.png</normaloff>:/icons/icons/new_db.png</iconset>
+   </property>
    <property name="text">
     <string>New database</string>
    </property>
@@ -72,6 +109,10 @@
    </property>
   </action>
   <action name="action_open_database">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/icons/open_db.png</normaloff>:/icons/icons/open_db.png</iconset>
+   </property>
    <property name="text">
     <string>Open database</string>
    </property>
@@ -80,6 +121,10 @@
    </property>
   </action>
   <action name="action_quit">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/icons/Quit.png</normaloff>:/icons/icons/Quit.png</iconset>
+   </property>
    <property name="text">
     <string>Quit</string>
    </property>
@@ -87,8 +132,35 @@
     <string>Ctrl+Q</string>
    </property>
   </action>
+  <action name="action_insert_new_actor">
+   <property name="text">
+    <string>Insert new actor</string>
+   </property>
+  </action>
+  <action name="action_remove_selected_actor">
+   <property name="text">
+    <string>Remove selected actor</string>
+   </property>
+  </action>
+  <action name="action_reload_list_of_actors">
+   <property name="text">
+    <string>Reload list of actors</string>
+   </property>
+  </action>
+  <action name="action_edit_countries">
+   <property name="text">
+    <string>Edit countries</string>
+   </property>
+  </action>
+  <action name="action_change_image">
+   <property name="text">
+    <string>Change image</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

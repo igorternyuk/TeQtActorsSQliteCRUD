@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/new_db.png</file>
+        <file>icons/open_db.png</file>
+        <file>icons/Quit.png</file>
+        <file>icons/app.png</file>
+    </qresource>
+</RCC>

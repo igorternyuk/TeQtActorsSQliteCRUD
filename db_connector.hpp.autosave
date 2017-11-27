@@ -1,0 +1,29 @@
+#pragma once
+
+#include <QObject>
+#include <QSqlDatabase>
+
+class DBConnector : public QObject
+{
+    Q_OBJECT
+public:
+    enum ActorColumns
+    {
+        ID,
+        NAME,
+        DOB,
+        BIO,
+        ID_COUNTRY,
+        FILE_PATH,
+        IMAGE
+    };
+    explicit DBConnector(QObject *parent = nullptr);
+    bool newDatabase(const QString &filename, QString &errorMessage);
+    bool configurateDB(QString &errorMessage);
+signals:
+
+public slots:
+private:
+    QSqlDatabase mDB;
+
+};

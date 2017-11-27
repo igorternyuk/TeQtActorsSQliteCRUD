@@ -1,0 +1,47 @@
+#include "db_connector.hpp"
+#include <QSqlQuery>
+#include <QSqlError>
+
+#define CREATE_TABLE_COUNTRIES "CREATE TABLE IF NOT EXISTS country " \
+                               "(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " \
+                               " name TEXT NOT NULL)"
+#define CREATE_TABLE_ACTORS "CREATE TABLE IF NOT EXISTS actor (" \
+                            "id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " \
+                            "name TEXT NOT NULL, dob DATE, bio TEXT, " \
+                            "idCountry INTEGER NOT NULL, " \
+                            "filePath TEXT NOT NULL UNIQUE, " \
+                            "image BLOB NOT NULL, " \
+                            "FOREIGN KEY (idCountry) REFERENCES country(id))" \
+
+DBConnector::DBConnector(QObject *parent) : QObject(parent)
+{
+
+}
+
+bool DBConnector::newDatabase(const QString &filename, QString &errorMessage)
+{
+    mDB = QSqlDatabase::addDatabase("QSQLITE");
+    mDB.setDatabaseName(filename);
+    if(!mDB.open())
+    {
+        errorMessage = mDB.lastError().text();
+        return false;
+    }
+    return true;
+}
+
+bool DBConnector::configurateDB(QString &errorMessage)
+{
+    QSqlQuery query;
+    if(!query.exec(CREATE_TABLE_COUNTRIES))
+    {
+        errorMessage = mDB.lastError().text();
+        return false;
+    }
+    if(!query.exec(CREATE_TABLE_ACTORS))
+    {
+        errorMessage = mDB.lastError().text();
+        return false;
+    }
+    return true;
+}

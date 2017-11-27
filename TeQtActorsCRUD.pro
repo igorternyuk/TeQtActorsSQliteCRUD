@@ -14,8 +14,23 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    dialogcountry.cpp \
+    db_manager.cpp \
+    actor.cpp \
+    dialoginsertactor.cpp \
+    comboboxsqlmodel.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    dialogcountry.h \
+    db_manager.hpp \
+    actor.hpp \
+    dialoginsertactor.hpp \
+    comboboxsqlmodel.hpp
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    dialogcountry.ui \
+    dialoginsertactor.ui
+
+RESOURCES += \
+    resources.qrc

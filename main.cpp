@@ -2,6 +2,8 @@
 #include <QApplication>
 #include <QDesktopWidget>
 
+/* Заменить дефайны на QMap и актера передать по указателю умному*/
+
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
