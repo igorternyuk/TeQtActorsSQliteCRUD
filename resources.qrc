@@ -4,5 +4,16 @@
         <file>icons/open_db.png</file>
         <file>icons/Quit.png</file>
         <file>icons/app.png</file>
+        <file>icons/addNewActor.png</file>
+        <file>icons/changePicture.png</file>
+        <file>icons/editActorPicture.png</file>
+        <file>icons/insertToDb.png</file>
+        <file>icons/newDB.png</file>
+        <file>icons/newDB2.png</file>
+        <file>icons/openDB.png</file>
+        <file>icons/reloadDB.png</file>
+        <file>icons/removeActor.png</file>
+        <file>icons/removeFromDb.png</file>
+        <file>icons/searchActor.png</file>
     </qresource>
 </RCC>

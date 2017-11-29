@@ -2,27 +2,28 @@
 
 #include <QString>
 #include <QByteArray>
+#include <QDate>
 
 class Actor
 {
 public:
     explicit Actor(const QByteArray &image = QByteArray());
-    explicit Actor(const QString &name, const QString &date,
+    explicit Actor(const QString &name, const QDate &date,
                    const QString &bio, int idCountry,
                    const QByteArray &image = QByteArray());
-    explicit Actor(int id, const QString &name, const QString &date,
+    explicit Actor(int id, const QString &name, const QDate &date,
                    const QString &bio, int idCountry,
                    const QByteArray &image = QByteArray());
     int id() const;
     QString name() const;
-    QString date() const;
+    QDate date() const;
     QString bio() const;
     int idCountry() const;
     QByteArray image() const;
 
     void setId(int id);
     void setName(const QString &name);
-    void setDate(const QString &date);
+    void setDate(const QDate &date);
     void setBio(const QString &bio);
     void setIdCountry(int idCountry);
     void setImage(const QByteArray &image);
@@ -30,7 +31,7 @@ public:
 private:
     int mId;
     QString mName;
-    QString mDate;
+    QDate mDate;
     QString mBio;
     int mIdCountry;
     QByteArray mImage;

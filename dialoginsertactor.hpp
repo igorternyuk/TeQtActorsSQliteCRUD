@@ -2,7 +2,7 @@
 
 #include <QDialog>
 #include "actor.hpp"
-//#include <memory>
+#include <memory>
 
 namespace Ui
 {
@@ -18,7 +18,7 @@ public:
     explicit DialogInsertActor(ComboBoxSqlModel *comboModel,
                                QWidget *parent = nullptr);
     ~DialogInsertActor();
-    Actor actor() const;
+    std::shared_ptr<Actor> actor() const;
 
 private slots:
     void on_buttonBox_accepted();
@@ -27,6 +27,6 @@ private slots:
 
 private:
     Ui::DialogInsertActor *ui;
-    Actor mActor;
+    std::shared_ptr<Actor> mActor;
     ComboBoxSqlModel *mComboModel;
 };

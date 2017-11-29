@@ -4,14 +4,14 @@ Actor::Actor(const QByteArray &image):
     mImage { image }
 {}
 
-Actor::Actor(int id, const QString &name, const QString &date,
+Actor::Actor(int id, const QString &name, const QDate &date,
              const QString &bio, int idCountry,
              const QByteArray &image):
     mId { id }, mName{ name }, mDate { date }, mBio { bio },
     mIdCountry{ idCountry }, mImage { image }
 {}
 
-Actor::Actor(const QString &name, const QString &date,
+Actor::Actor(const QString &name, const QDate &date,
              const QString &bio, int idCountry,
              const QByteArray &image):
     Actor(0, name, date, bio, idCountry, image)
@@ -27,7 +27,7 @@ QString Actor::name() const
     return mName;
 }
 
-QString Actor::date() const
+QDate Actor::date() const
 {
     return mDate;
 }
@@ -57,7 +57,7 @@ void Actor::setName(const QString &name)
     mName = name;
 }
 
-void Actor::setDate(const QString &date)
+void Actor::setDate(const QDate &date)
 {
     mDate = date;
 }

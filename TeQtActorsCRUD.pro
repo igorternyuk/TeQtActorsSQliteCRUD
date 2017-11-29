@@ -19,18 +19,21 @@ SOURCES += main.cpp\
     db_manager.cpp \
     actor.cpp \
     dialoginsertactor.cpp \
-    comboboxsqlmodel.cpp
+    comboboxsqlmodel.cpp \
+    dialogchangebioandphoto.cpp
 
 HEADERS  += mainwindow.h \
     dialogcountry.h \
     db_manager.hpp \
     actor.hpp \
     dialoginsertactor.hpp \
-    comboboxsqlmodel.hpp
+    comboboxsqlmodel.hpp \
+    dialogchangebioandphoto.hpp
 
 FORMS    += mainwindow.ui \
     dialogcountry.ui \
-    dialoginsertactor.ui
+    dialoginsertactor.ui \
+    dialogchangebioandphoto.ui
 
 RESOURCES += \
     resources.qrc

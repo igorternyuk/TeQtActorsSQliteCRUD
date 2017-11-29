@@ -50,6 +50,7 @@ void DialogCountry::on_action_remove_selected_country_triggered()
         }
         mModel->removeRow(row);
         mModel->select();
+        emit countryListUpdated();
     }
 }
 
@@ -62,4 +63,11 @@ void DialogCountry::setModel(QSqlTableModel *model)
 {
     mModel = model;
     ui->tableView->setModel(model);
+}
+
+void DialogCountry::on_btnReload_clicked()
+{
+    if(!mModel) return;
+    mModel->select();
+    emit countryListUpdated();
 }

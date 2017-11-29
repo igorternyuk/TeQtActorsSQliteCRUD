@@ -42,7 +42,7 @@ void DialogInsertActor::on_buttonBox_accepted()
         return;
     }
     QString name = ui->txtName->text();
-    QString dob = ui->dateEditDOB->date().toString(Qt::ISODate);
+    auto dob = ui->dateEditDOB->date();
     QString bio = ui->txtBiography->toPlainText();
     int idCountry { ui->comboCountry->itemData( ui->comboCountry->currentIndex(),
                                                 Qt::UserRole ).toInt() };
@@ -50,7 +50,8 @@ void DialogInsertActor::on_buttonBox_accepted()
     /*explicit Actor(const QString &name, const QString &date,
                    const QString &bio, int idCountry,
                    const QByteArray &image = QByteArray());*/
-    mActor = Actor(name, dob, bio, idCountry, image);
+    mActor.reset();
+    mActor = std::make_shared<Actor>(name, dob, bio, idCountry, image);
     accept();
 }
 
@@ -59,7 +60,7 @@ void DialogInsertActor::on_buttonBox_rejected()
     reject();
 }
 
-Actor DialogInsertActor::actor() const
+std::shared_ptr<Actor> DialogInsertActor::actor() const
 {
     return mActor;
 }
@@ -71,7 +72,7 @@ void DialogInsertActor::on_btnLoadImage_clicked()
         QStandardPaths::standardLocations(QStandardPaths::PicturesLocation)
                 .value(0, QDir::homePath())
     };
-    QString filter { "Databases (*.jpg *.jpeg *.png *.bmp);;All files (*.*)" };
+    QString filter { "Images (*.jpg *.jpeg *.png *.bmp);;All files (*.*)" };
     auto filePath = QFileDialog::getOpenFileName(this, "Select a picture",
                                                  startLocation, filter);
     ui->txtPathToImage->setText(filePath);

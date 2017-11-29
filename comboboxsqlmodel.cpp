@@ -1,6 +1,8 @@
 #include "comboboxsqlmodel.hpp"
 #include <QSqlQuery>
+#ifdef DEBUG
 #include <QDebug>
+#endif
 
 namespace
 {
@@ -61,6 +63,7 @@ int ComboBoxSqlModel::rowCount(const QModelIndex &parent) const
 void ComboBoxSqlModel::reload()
 {
     QSqlQuery query;
+    qDebug() << "SQL = " << mQuery;
     query.prepare( mQuery );
     query.exec();
     QSqlQueryModel::setQuery(mQuery);

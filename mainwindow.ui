@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>678</width>
-    <height>432</height>
+    <width>1024</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,8 +18,8 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>678</width>
-    <height>432</height>
+    <width>1024</width>
+    <height>600</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -32,25 +32,25 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QTableView" name="tableView"/>
-      </item>
-      <item>
+     <widget class="QSplitter" name="splitter_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QTableView" name="tableView"/>
+      <widget class="QWidget" name="layoutWidget">
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QLabel" name="lblImage">
-          <property name="text">
-           <string>TextLabel</string>
+         <widget class="QSplitter" name="splitter">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
           </property>
+          <widget class="QGraphicsView" name="graphicsView"/>
+          <widget class="QTextEdit" name="txtBio"/>
          </widget>
         </item>
-        <item>
-         <widget class="QTextEdit" name="txtBio"/>
-        </item>
        </layout>
-      </item>
-     </layout>
+      </widget>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -59,7 +59,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>678</width>
+     <width>1024</width>
      <height>19</height>
     </rect>
    </property>
@@ -91,7 +91,9 @@
    <addaction name="action_open_database"/>
    <addaction name="action_insert_new_actor"/>
    <addaction name="action_remove_selected_actor"/>
+   <addaction name="action_change_bio_and_image"/>
    <addaction name="action_reload_list_of_actors"/>
+   <addaction name="action_search_for_an_actor"/>
    <addaction name="separator"/>
    <addaction name="action_quit"/>
   </widget>
@@ -111,7 +113,7 @@
   <action name="action_open_database">
    <property name="icon">
     <iconset resource="resources.qrc">
-     <normaloff>:/icons/icons/open_db.png</normaloff>:/icons/icons/open_db.png</iconset>
+     <normaloff>:/icons/icons/openDB.png</normaloff>:/icons/icons/openDB.png</iconset>
    </property>
    <property name="text">
     <string>Open database</string>
@@ -133,16 +135,28 @@
    </property>
   </action>
   <action name="action_insert_new_actor">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/icons/addNewActor.png</normaloff>:/icons/icons/addNewActor.png</iconset>
+   </property>
    <property name="text">
     <string>Insert new actor</string>
    </property>
   </action>
   <action name="action_remove_selected_actor">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/icons/removeActor.png</normaloff>:/icons/icons/removeActor.png</iconset>
+   </property>
    <property name="text">
     <string>Remove selected actor</string>
    </property>
   </action>
   <action name="action_reload_list_of_actors">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/icons/reloadDB.png</normaloff>:/icons/icons/reloadDB.png</iconset>
+   </property>
    <property name="text">
     <string>Reload list of actors</string>
    </property>
@@ -152,9 +166,27 @@
     <string>Edit countries</string>
    </property>
   </action>
-  <action name="action_change_image">
+  <action name="action_change_bio_and_image">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/icons/editActorPicture.png</normaloff>:/icons/icons/editActorPicture.png</iconset>
+   </property>
    <property name="text">
-    <string>Change image</string>
+    <string>Change biography and(or) image</string>
+   </property>
+  </action>
+  <action name="action_search_for_an_actor">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/icons/icons/searchActor.png</normaloff>:/icons/icons/searchActor.png</iconset>
+   </property>
+   <property name="text">
+    <string>Search for an actor</string>
+   </property>
+  </action>
+  <action name="action_change_photo">
+   <property name="text">
+    <string>Change photo</string>
    </property>
   </action>
  </widget>
